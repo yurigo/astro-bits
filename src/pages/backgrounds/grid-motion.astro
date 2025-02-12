@@ -1,0 +1,95 @@
+---
+import GridMotion from "@components/backgrounds/GridMotion.astro";
+import Button from "@components/Button.astro";
+import BackIcon from "@components/icons/BackIcon.astro";
+import Layout from "@layouts/Layout.astro";
+
+// note: you'll need to make sure the parent container of this component is sized properly
+const items = [
+  "Item 1",
+  "https://images.unsplash.com/photo-1723403804231-f4e9b515fe9d?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "Item 2",
+  "Item 4",
+  "https://images.unsplash.com/photo-1723403804231-f4e9b515fe9d?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "Item 5",
+  "Item 7",
+  "https://images.unsplash.com/photo-1723403804231-f4e9b515fe9d?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "Item 8",
+  "Item 10",
+  "https://images.unsplash.com/photo-1723403804231-f4e9b515fe9d?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "Item 11",
+  "Item 13",
+  "https://images.unsplash.com/photo-1723403804231-f4e9b515fe9d?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "Item 14",
+  "Item 15",
+  "https://images.unsplash.com/photo-1723403804231-f4e9b515fe9d?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "Item 16",
+  "Item 17",
+  "https://images.unsplash.com/photo-1723403804231-f4e9b515fe9d?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "Item 18",
+  "Item 19",
+  "https://images.unsplash.com/photo-1723403804231-f4e9b515fe9d?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "Item 20",
+  "Item 21",
+  "https://images.unsplash.com/photo-1723403804231-f4e9b515fe9d?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "Item 22",
+  "Item 23",
+  "https://images.unsplash.com/photo-1723403804231-f4e9b515fe9d?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "Item 24",
+  // Add more items as needed
+];
+
+const items2 = [
+  "https://http.cat/images/100.jpg",
+  "https://http.cat/images/101.jpg",
+  "https://http.cat/images/102.jpg",
+  "https://http.cat/images/103.jpg",
+  "https://http.cat/images/200.jpg",
+  "https://http.cat/images/201.jpg",
+  "https://http.cat/images/202.jpg",
+  "https://http.cat/images/204.jpg",
+  "https://http.cat/images/206.jpg",
+  "https://http.cat/images/207.jpg",
+  "https://http.cat/images/208.jpg",
+  "https://http.cat/images/226.jpg",
+  "https://http.cat/images/300.jpg",
+  "https://http.cat/images/301.jpg",
+  "https://http.cat/images/302.jpg",
+  "https://http.cat/images/303.jpg",
+  "https://http.cat/images/304.jpg",
+  "https://http.cat/images/305.jpg",
+  "https://http.cat/images/306.jpg",
+  "https://http.cat/images/307.jpg",
+  "https://http.cat/images/400.jpg",
+  "https://http.cat/images/401.jpg",
+  "https://http.cat/images/402.jpg",
+  "https://http.cat/images/403.jpg",
+  "https://http.cat/images/404.jpg",
+  "https://http.cat/images/405.jpg",
+  "https://http.cat/images/406.jpg",
+  "https://http.cat/images/407.jpg",
+  "https://http.cat/images/408.jpg",
+  "https://http.cat/images/409.jpg",
+  "https://http.cat/images/410.jpg",
+  "https://http.cat/images/411.jpg",
+  "https://http.cat/images/412.jpg",
+];
+---
+
+<Layout>
+  <div class="absolute top-0 left-0 w-full h-full z-0 bg-black">
+    <GridMotion items={items} />
+  </div>
+  <div
+    class="relative flex flex-col items-center justify-center w-full h-full text-white z-10 pointer-events-none"
+  >
+    <h1 class="text-9xl">GridMotion</h1>
+    <Button class="mt-6 pointer-events-auto" onclick="window.location='/'"
+      ><BackIcon /></Button
+    >
+  </div>
+  <div class="bg-gray-700">
+    <GridMotion items={items2} class="bg-black" />
+  </div>
+  <!-- <GridMotion items={items} /> -->
+</Layout>

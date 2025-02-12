@@ -1,48 +1,76 @@
-# Astro Starter Kit: Basics
+# astro-bits
 
-```sh
-npm create astro@latest -- --template basics
-```
+Check this: https://docs.astro.build/en/guides/client-side-scripts/#web-components-with-custom-elements
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Using as reference https://www.reactbits.dev/ i am doing the astrobits.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Since it is a project in Astro, the components will not be reactive; they will be static.
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## text animations
 
-## 🚀 Project Structure
+- [ ] https://www.reactbits.dev/text-animations/split-text
+- [ ] https://www.reactbits.dev/text-animations/blur-text
+- [ ] https://reactbits.dev/text-animations/shiny-text
+- [ ] https://www.reactbits.dev/text-animations/text-pressure
+- [x] https://www.reactbits.dev/text-animations/gradient-text 🔥
+- [ ] https://www.reactbits.dev/text-animations/falling-text
+- [ ] https://www.reactbits.dev/text-animations/decrypted-text 🔥
+- [ ] https://www.reactbits.dev/text-animations/true-focus 🔥
+- [ ] https://www.reactbits.dev/text-animations/ascii-text
+- [ ] https://www.reactbits.dev/text-animations/rotating-text 🔥
+- [ ] https://www.reactbits.dev/text-animations/variable-proximity 🔥
+- [ ] https://www.reactbits.dev/text-animations/count-up 🔥
 
-Inside of your Astro project, you'll see the following folders and files:
+## animations
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- [ ] https://www.reactbits.dev/animations/animated-content
+- [ ] https://www.reactbits.dev/animations/fade-content
+- [ ] https://www.reactbits.dev/animations/pixel-transition 🔥
+- [ ] https://www.reactbits.dev/animations/magnet-lines
+- [ ] https://www.reactbits.dev/animations/click-spark 🔥
+- [ ] https://www.reactbits.dev/animations/magnet 🔥
+- [ ] https://www.reactbits.dev/animations/pixel-trail
+- [ ] https://www.reactbits.dev/animations/noise 🔥
+- [ ] https://www.reactbits.dev/animations/crosshair 🔥
+- [ ] https://www.reactbits.dev/animations/image-trail
+- [ ] <strike>https://www.reactbits.dev/animations/ribbons</strike>
+- [ ] https://www.reactbits.dev/animations/splash-cursor 🔥🔥🔥🔥🔥
+- [ ] https://www.reactbits.dev/animations/meta-balls
+- [ ] https://www.reactbits.dev/animations/follow-cursor
+- [ ] https://www.reactbits.dev/animations/blob-cursor
+- [ ] https://www.reactbits.dev/animations/star-border
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## components
 
-## 🧞 Commands
+- [ ] https://www.reactbits.dev/components/stack
+- [ ] https://www.reactbits.dev/components/tilted-card
+- [ ] https://www.reactbits.dev/components/dock
+- [ ] https://www.reactbits.dev/components/masonry
+- [ ] https://www.reactbits.dev/components/pixel-card 🔥
+- [ ] https://www.reactbits.dev/components/circular-gallery
+- [ ] https://www.reactbits.dev/components/spotlight-card 🔥
+- [ ] <strike>https://www.reactbits.dev/components/flying-posters</strike>
+- [ ] https://www.reactbits.dev/components/infinite-scroll
+- [ ] https://www.reactbits.dev/components/decay-card
+- [ ] https://www.reactbits.dev/components/flowing-menu
+- [ ] https://www.reactbits.dev/components/logo-wall
+- [ ] https://www.reactbits.dev/components/elastic-slider
+- [ ] https://www.reactbits.dev/components/infinite-menu
+- [ ] https://www.reactbits.dev/components/rolling-gallery
+- [ ] https://www.reactbits.dev/components/stepper 🔥
 
-All commands are run from the root of the project, from a terminal:
+## backgrounds
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- [x] https://www.reactbits.dev/backgrounds/aurora 🔥
+- [ ] https://www.reactbits.dev/backgrounds/shape-blur 🔥
+- [ ] https://www.reactbits.dev/backgrounds/hyperspeed
+- [ ] https://www.reactbits.dev/backgrounds/iridescence 🔥
+- [ ] https://www.reactbits.dev/backgrounds/grid-distortion
+- [ ] https://www.reactbits.dev/backgrounds/ballpit
+- [ ] https://www.reactbits.dev/backgrounds/orb 🔥
+- [x] https://www.reactbits.dev/backgrounds/grid-motion 🔥
+- [ ] https://www.reactbits.dev/backgrounds/liquid-chrome
+- [ ] https://www.reactbits.dev/backgrounds/squares
+- [ ] https://www.reactbits.dev/backgrounds/letter-glitch
+- [ ] https://www.reactbits.dev/backgrounds/particles 🔥🔥🔥🔥🔥🔥
+- [ ] https://www.reactbits.dev/backgrounds/waves
