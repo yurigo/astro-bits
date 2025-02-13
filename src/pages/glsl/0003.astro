@@ -1,0 +1,191 @@
+---
+import LayoutExample from "@layouts/LayoutExample.astro";
+---
+
+<LayoutExample title="0003">
+  <div
+    class="test-container absolute top-0 left-0 w-full h-full z-0 bg-gray-100"
+  >
+  </div>
+</LayoutExample>
+
+<style></style>
+
+<script>
+  import goat from "@assets/goat.json" assert { type: "json" };
+  import {
+    Renderer,
+    Camera,
+    Transform,
+    Program,
+    Geometry,
+    Mesh,
+    Vec3,
+    Orbit,
+  } from "ogl";
+  import glsl from "glslify";
+
+  const ctn = document.querySelector(".test-container") as HTMLElement;
+
+  const renderer = new Renderer({ dpr: 2 });
+  const gl = renderer.gl;
+  ctn?.appendChild(gl.canvas);
+  gl.clearColor(1, 1, 1, 1);
+
+  const camera = new Camera(gl, { fov: 35 });
+  camera.position.set(3, 2, 4);
+
+  const controls = new Orbit(camera, {
+    target: new Vec3(0, 1, 0),
+  });
+
+  function resize() {
+    console.log("resize 🦄");
+    const width = ctn?.offsetWidth || window.innerWidth;
+    const height = ctn?.offsetHeight || window.innerHeight;
+    renderer.setSize(width, height);
+    camera.perspective({ aspect: gl.canvas.width / gl.canvas.height });
+  }
+
+  window.addEventListener("resize", resize, false);
+  resize();
+
+  const VERT = glsl`attribute vec3 position;
+                attribute vec3 barycentric;
+
+                uniform mat4 modelViewMatrix;
+                uniform mat4 projectionMatrix;
+
+                varying vec3 vBarycentric;
+
+                void main() {
+                    vBarycentric = barycentric;
+                    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+                }
+  `;
+  const FRAG = glsl`#extension GL_OES_standard_derivatives : enable
+                precision highp float;
+
+                varying vec3 vBarycentric;
+
+                void main() {
+                    vec3 bary = vBarycentric;
+
+                    vec3 color = vec3(0);
+                    float alpha = 1.0;
+
+                    // Line thickness - in pixels
+                    float width = 1.0 * 0.5;
+                    vec3 d = fwidth(bary);
+                    vec3 s = smoothstep(d * (width + 0.5), d * (width - 0.5), bary);
+                    alpha *= max(max(s.x, s.y), s.z);
+
+                    // Dashes
+                    alpha *= step(0.0, sin(max(bary.x, bary.y) * 3.14 * 5.0));
+
+                    // Back face shading
+                    color = mix(vec3(1, 0, 0), color, vec3(gl_FrontFacing));
+                    alpha = mix(alpha * 0.1 + 0.02, alpha, float(gl_FrontFacing));
+
+                    gl_FragColor.rgb = color;
+                    gl_FragColor.a = alpha;
+                }
+  `;
+
+  const VERT_300 = glsl`#version 300 es
+
+                in vec3 position;
+                in vec3 barycentric;
+
+                uniform mat4 modelViewMatrix;
+                uniform mat4 projectionMatrix;
+
+                out vec3 vBarycentric;
+
+                void main() {
+                    vBarycentric = barycentric;
+                    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+                }
+  `;
+
+  const FRAG_300 = glsl`#version 300 es
+                precision highp float;
+
+                in vec3 vBarycentric;
+
+                out vec4 FragColor;
+
+                void main() {
+                    vec3 bary = vBarycentric;
+
+                    vec3 color = vec3(0);
+                    float alpha = 1.0;
+
+                    // Line thickness - in pixels
+                    float width = 1.0 * 0.5;
+                    vec3 d = fwidth(bary);
+                    vec3 s = smoothstep(d * (width + 0.5), d * (width - 0.5), bary);
+                    alpha *= max(max(s.x, s.y), s.z);
+
+                    // Dashes
+                    alpha *= step(0.0, sin(max(bary.x, bary.y) * 3.14 * 5.0));
+
+                    // Back face shading
+                    color = mix(vec3(0, 1, 0), color, vec3(gl_FrontFacing));
+                    alpha = mix(alpha * 0.1 + 0.02, alpha, float(gl_FrontFacing));
+
+                    FragColor.rgb = color;
+                    FragColor.a = alpha;
+                }
+  `;
+
+  const scene = new Transform();
+
+  const program = new Program(gl, {
+    vertex: renderer.isWebgl2 ? VERT_300 : VERT,
+    fragment: renderer.isWebgl2 ? FRAG_300 : FRAG,
+    transparent: true,
+    cullFace: false,
+    depthTest: false,
+  });
+
+  function addBarycentric(position: number[]) {
+    const count = position.length / 9;
+    const barycentric = [];
+
+    for (let i = 0; i < count; i++) {
+      if (i % 2 === 0) barycentric.push(0, 0, 1, 0, 1, 0, 1, 0, 0);
+      else barycentric.push(0, 1, 0, 0, 0, 1, 1, 0, 0);
+    }
+
+    return new Float32Array(barycentric);
+  }
+
+  let mesh: Mesh;
+  loadModel();
+
+  function loadModel() {
+    // const data = await (await fetch(`assets/goat.json`)).json();
+    const data = goat;
+
+    const geometry = new Geometry(gl, {
+      position: { size: 3, data: new Float32Array(data.position) },
+      uv: { size: 2, data: new Float32Array(data.uv) },
+      normal: { size: 3, data: new Float32Array(data.normal) },
+      barycentric: { size: 3, data: addBarycentric(data.position) },
+    });
+
+    mesh = new Mesh(gl, { geometry, program });
+    mesh.setParent(scene);
+  }
+
+  requestAnimationFrame(update);
+
+  function update(t: number) {
+    requestAnimationFrame(update);
+
+    if (mesh) mesh.rotation.y += 0.005;
+    controls.update();
+    renderer.render({ scene, camera });
+  }
+</script>

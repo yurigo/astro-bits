@@ -12,6 +12,7 @@
     "@tailwindcss/vite": "^4.0.6",
     "astro": "^5.2.6",
     "canvas-confetti": "^1.9.3",
+    "glslify": "^7.1.1",
     "gsap": "^3.12.7",
     "ogl": "^1.0.11",
     "tailwindcss": "^4.0.6"

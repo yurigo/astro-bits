@@ -1,0 +1,160 @@
+---
+import LayoutExample from "@layouts/LayoutExample.astro";
+---
+
+<LayoutExample title="0001">
+  <div class="test-container absolute top-0 left-0 w-full h-full z-0 bg-black">
+  </div>
+  <Fragment slot="description">
+    <h2 class="text-5xl mb-2">0001</h2>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
+      reprehenderit beatae, exercitationem inventore dolore mollitia ex
+      possimus, necessitatibus culpa dignissimos cumque voluptate accusantium,
+      fugit veniam. Vero commodi eius, amet et reprehenderit sit laudantium
+      nostrum, aliquid sapiente autem quibusdam totam quis quisquam libero modi
+      rerum praesentium magnam inventore quidem illo soluta repudiandae nemo
+      earum tempore. Quasi, ducimus ad. Voluptatibus, enim? Inventore ad animi
+      labore id temporibus doloremque officia est itaque totam asperiores
+      doloribus voluptate, magni accusantium commodi aliquid eum provident
+      deleniti suscipit sed omnis, quod ipsa iusto soluta cupiditate? Suscipit
+      quasi reprehenderit nisi voluptas fugit voluptatibus necessitatibus esse
+      quae sequi neque.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
+      reprehenderit beatae, exercitationem inventore dolore mollitia ex
+      possimus, necessitatibus culpa dignissimos cumque voluptate accusantium,
+      fugit veniam. Vero commodi eius, amet et reprehenderit sit laudantium
+      nostrum, aliquid sapiente autem quibusdam totam quis quisquam libero modi
+      rerum praesentium magnam inventore quidem illo soluta repudiandae nemo
+      earum tempore. Quasi, ducimus ad. Voluptatibus, enim? Inventore ad animi
+      labore id temporibus doloremque officia est itaque totam asperiores
+      doloribus voluptate, magni accusantium commodi aliquid eum provident
+      deleniti suscipit sed omnis, quod ipsa iusto soluta cupiditate? Suscipit
+      quasi reprehenderit nisi voluptas fugit voluptatibus necessitatibus esse
+      quae sequi neque.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus neque
+      accusantium aperiam obcaecati quos voluptatem soluta quo est nemo, aliquam
+      provident harum! Quasi nemo libero amet, delectus ex hic. Quasi cupiditate
+      temporibus perferendis aliquam blanditiis mollitia, iusto maiores cum,
+      commodi iste eligendi placeat a? Et ut praesentium quisquam perferendis
+      pariatur dolorum debitis doloribus similique, sed iste facere consequatur
+      quia error recusandae optio eveniet, nobis atque aliquam porro rem
+      reprehenderit odio iure! Fugiat voluptate impedit animi doloremque
+      delectus provident sunt, tenetur vitae, magnam, nemo odit ab iusto?
+      Numquam, consectetur reiciendis. Hic, molestiae. In, nisi eaque ratione
+      ipsum nesciunt consequatur et fuga impedit reprehenderit hic reiciendis
+      molestias necessitatibus dolorem modi? Nisi at dolores illo rem quos
+      voluptatem voluptas. Nulla, harum! Aliquid id commodi, doloremque harum
+      fuga vel qui molestiae molestias assumenda quam et saepe eaque minima
+      reprehenderit. Accusamus id rerum ducimus voluptate modi officiis
+      doloribus veniam autem eius, reprehenderit quia non expedita asperiores
+      maiores nesciunt voluptatem consectetur ipsa corrupti eveniet. Officia
+      magnam molestias laborum mollitia non vero. Voluptate quisquam veniam
+      ipsum dignissimos repellendus, possimus adipisci debitis eveniet?
+      Consequuntur voluptate similique praesentium reprehenderit minus, repellat
+      ex esse amet quia delectus nisi accusamus rem veritatis fugit voluptates
+      impedit fugiat. Sit ipsa harum doloribus, ullam tempore corrupti maiores
+      at debitis atque nesciunt repellendus distinctio animi magni velit est
+      voluptatibus quisquam culpa expedita fugit beatae in eaque exercitationem
+      non! Sapiente maiores excepturi exercitationem iure. Natus praesentium qui
+      repellat, quibusdam laudantium, vero maiores esse distinctio veniam enim,
+      placeat nam necessitatibus eius corporis blanditiis dolorum quidem
+      veritatis eaque at? Consectetur ipsam recusandae deleniti nemo officiis
+      numquam earum delectus voluptate, aperiam aliquid quaerat minus suscipit?
+      Enim ad adipisci ratione nemo, sed odit. Itaque magnam et dignissimos
+      consequatur ducimus corporis pariatur delectus, illo deleniti placeat iste
+      id unde ipsa consequuntur. Tempora aliquam minus assumenda accusamus magni
+      beatae tempore fuga quo temporibus voluptatem, id recusandae in rem,
+      delectus illum. Voluptatum sapiente est tempora cupiditate perferendis
+      modi mollitia ut doloribus eius expedita vitae quae laborum et odio
+      aliquam ad, nobis suscipit? Accusamus fugit ducimus quod porro dignissimos
+      expedita ex beatae dolorum! Repellat nostrum possimus, magnam soluta illum
+      repellendus placeat provident numquam cum non dicta itaque quos aut enim,
+      atque delectus nesciunt. At cupiditate aperiam, voluptatum voluptate
+      consectetur quia deserunt hic possimus numquam eius! Blanditiis numquam
+      sit iste omnis laborum soluta harum quam molestiae a autem optio explicabo
+      illum, odio quidem ratione. Unde eos enim obcaecati nostrum amet ut
+      explicabo molestias ad incidunt?
+    </p>
+  </Fragment>
+</LayoutExample>
+
+<style></style>
+
+<script>
+  import { Renderer, Program, Transform, Box, Camera, Mesh } from "ogl";
+  import glsl from "glslify";
+
+  const ctn = document.querySelector(".test-container") as HTMLElement;
+
+  const renderer = new Renderer();
+  const gl = renderer.gl;
+  ctn?.appendChild(gl.canvas);
+
+  const camera = new Camera(gl);
+  camera.position.z = 5;
+
+  gl.clearColor(0, 0, 0, 0);
+
+  function resize() {
+    console.log("resize 🦄");
+    const width = ctn?.offsetWidth || window.innerWidth;
+    const height = ctn?.offsetHeight || window.innerHeight;
+    renderer.setSize(width, height);
+    // if (program) {
+    //   program.uniforms.uResolution.value = [width, height];
+    // }
+    camera.perspective({ aspect: gl.canvas.width / gl.canvas.height });
+  }
+
+  window.addEventListener("resize", resize);
+  resize();
+
+  const scene = new Transform();
+
+  const geometry = new Box(gl);
+
+  const VERT = glsl`
+    attribute vec3 position;
+
+    uniform mat4 modelViewMatrix;
+    uniform mat4 projectionMatrix;
+
+    void main() {
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }`;
+  const FRAG = glsl`
+    void main() {
+      gl_FragColor = vec4(1.0);
+    }
+  `;
+
+  const program = new Program(gl, {
+    vertex: VERT,
+    fragment: FRAG,
+    // uniforms: {
+    //   uTime: { value: 0 },
+    //   uAmplitude: { value: amplitude },
+    //   uColorStops: { value: colorStopsArray },
+    //   uResolution: { value: [ctn.offsetWidth, ctn.offsetHeight] },
+    // },
+  });
+
+  const mesh = new Mesh(gl, { geometry, program });
+  mesh.setParent(scene);
+
+  requestAnimationFrame(update);
+
+  function update() {
+    requestAnimationFrame(update);
+
+    mesh.rotation.y -= 0.04;
+    mesh.rotation.x += 0.03;
+
+    renderer.render({ scene, camera });
+  }
+</script>
