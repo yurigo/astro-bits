@@ -94,14 +94,25 @@ const {
       resize();
 
       const handleMouseMove = (e) => {
+        console.log("handleMouseMove", e);
         const rect = ctn.getBoundingClientRect();
         const x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
         const y = -(((e.clientY - rect.top) / rect.height) * 2 - 1);
         this.mouseRef.current = { x, y };
       };
 
+      const handleTouchMove = (e) => {
+        console.log("handleMouseMove", e);
+        const rect = ctn.getBoundingClientRect();
+        const x = ((e.touches[0].clientX - rect.left) / rect.width) * 2 - 1;
+        const y = -(((e.touches[0].clientY - rect.top) / rect.height) * 2 - 1);
+        this.mouseRef.current = { x, y };
+      };
+
       if (moveParticlesOnHover) {
         ctn.addEventListener("mousemove", handleMouseMove);
+        // also on mobile:
+        ctn.addEventListener("touchmove", handleTouchMove);
       }
 
       const count = particleCount;
