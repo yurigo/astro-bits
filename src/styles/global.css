@@ -9,5 +9,5 @@ html {
 }
 
 h1 {
-  @apply text-4xl md:text-9xl;
+  @apply text-4xl md:text-9xl max-w-full text-ellipsis overflow-hidden px-10;
 }
