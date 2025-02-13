@@ -72,5 +72,5 @@ Since it is a project in Astro, the components will not be reactive; they will b
 - [ ] https://www.reactbits.dev/backgrounds/liquid-chrome
 - [ ] https://www.reactbits.dev/backgrounds/squares
 - [ ] https://www.reactbits.dev/backgrounds/letter-glitch
-- [ ] https://www.reactbits.dev/backgrounds/particles 🔥🔥🔥🔥🔥🔥
+- [x] https://www.reactbits.dev/backgrounds/particles 🔥🔥🔥🔥🔥🔥
 - [ ] https://www.reactbits.dev/backgrounds/waves
