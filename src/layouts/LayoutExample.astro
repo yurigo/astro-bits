@@ -11,7 +11,7 @@ console.log("slots", slots);
 ---
 
 <Layout>
-  <section class="relative min-h-screen flex flex-col">
+  <section class={"relative min-h-screen flex flex-col " + Astro.props.class}>
     <TitleWithBackIcon>{title}</TitleWithBackIcon>
     <slot />
   </section>

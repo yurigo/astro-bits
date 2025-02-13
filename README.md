@@ -34,7 +34,7 @@ Since it is a project in Astro, the components will not be reactive; they will b
 - [ ] https://www.reactbits.dev/animations/crosshair 🔥
 - [ ] https://www.reactbits.dev/animations/image-trail
 - [ ] <strike>https://www.reactbits.dev/animations/ribbons</strike>
-- [ ] https://www.reactbits.dev/animations/splash-cursor 🔥🔥🔥🔥🔥
+- [x] https://www.reactbits.dev/animations/splash-cursor 🔥🔥🔥🔥🔥
 - [ ] https://www.reactbits.dev/animations/meta-balls
 - [ ] https://www.reactbits.dev/animations/follow-cursor
 - [ ] https://www.reactbits.dev/animations/blob-cursor

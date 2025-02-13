@@ -1,0 +1,17 @@
+---
+import SplashCursor from "@components/animations/SplashCursor.astro";
+import Button from "@components/Button.astro";
+import BackIcon from "@components/icons/BackIcon.astro";
+import LayoutExample from "@layouts/LayoutExample.astro";
+---
+
+<LayoutExample title="Splash Cursor" class="bg-black">
+  <SplashCursor />
+
+  <div
+    class="relative grow flex flex-col items-center justify-center min-w-full min-h-full text-white z-10"
+  >
+    <h1 class="text-9xl">Splash Cursor</h1>
+    <Button class="mt-6" onclick="window.location='/'"><BackIcon /></Button>
+  </div>
+</LayoutExample>
