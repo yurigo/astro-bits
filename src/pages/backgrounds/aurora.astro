@@ -2,34 +2,74 @@
 import Aurora from "@components/backgrounds/Aurora.astro";
 import Button from "@components/Button.astro";
 import BackIcon from "@components/icons/BackIcon.astro";
-import Layout from "@layouts/Layout.astro";
+import LayoutExample from "@layouts/LayoutExample.astro";
 ---
 
-<Layout>
+<LayoutExample title="Aurora">
   <div class="absolute top-0 left-0 w-full h-full z-0 bg-black">
     <Aurora />
   </div>
+
   <div
-    class="relative flex flex-col items-center justify-center w-full h-full text-white z-10"
+    class="relative grow flex flex-col items-center justify-center min-w-full min-h-full text-white z-10"
   >
     <h1 class="text-9xl">Aurora</h1>
     <Button class="mt-6" onclick="window.location='/'"><BackIcon /></Button>
   </div>
-  <Aurora
-    colorStops={["#DE3163", "#CCCCFF", "#FFBF00"]}
-    amplitude={0.1}
-    speed={3.0}
-  />
-  <Aurora />
-  <Aurora
-    colorStops={["#995533", "#DE3163", "#FFBF00"]}
-    amplitude={1.0}
-    speed={0.5}
-  />
-  <Aurora />
-  <Aurora
-    colorStops={["#DE3163", "#CCCCFF", "#FFBF00"]}
-    amplitude={0.1}
-    speed={3.0}
-  />
-</Layout>
+
+  <Fragment slot="extra">
+    <section class="relative min-h-screen flex flex-col">
+      <a class="sticky top-0 inline-block p-4 z-10" href="/"
+        ><BackIcon class="text-cyan-900 mt-1.5 w-12 h-12" /></a
+      >
+      <div class="absolute top-0 left-0 w-full h-full -z-10 bg-black">
+        <Aurora
+          colorStops={["#DE3163", "#CCCCFF", "#FFBF00"]}
+          amplitude={0.1}
+          speed={3.0}
+        />
+      </div>
+      <div class="content mx-auto -mt-20 ms-20 p-4 text-white">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+          velit sequi veritatis officiis explicabo asperiores soluta ex quis
+          perferendis dolor consequatur ea nam odio, praesentium, laboriosam,
+          recusandae doloremque fuga nemo.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
+          sed, atque impedit asperiores eligendi non commodi ab dolorum in nihil
+          minus accusantium aliquam esse amet labore cum voluptates reiciendis
+          tenetur, ea, ipsa suscipit molestiae doloremque! Totam est obcaecati
+          fugiat magnam dolore ex perferendis suscipit molestiae in magni nisi
+          impedit vel esse quod neque aut ut, quasi ipsa optio eveniet? Sunt et
+          dolore quia voluptatibus dignissimos omnis atque aut doloribus
+          laudantium, tempora deleniti, totam cupiditate. Nesciunt architecto
+          deleniti culpa consectetur excepturi, possimus minus, unde quisquam
+          quasi rerum eum voluptatibus aspernatur deserunt! Nemo dolore libero
+          sint eveniet atque quis quisquam, enim dignissimos expedita sit
+          incidunt, quidem accusantium reiciendis saepe harum animi a nisi
+          ipsam! Asperiores numquam voluptatem dolores debitis iure modi
+          distinctio nulla sed, accusamus cum quas a excepturi maiores ratione
+          iusto vitae illum, pariatur recusandae natus, atque est eum dolorum
+          eos. Nesciunt architecto eos natus vero eveniet cum repudiandae
+          dolore, ipsam voluptatem repellat sit facilis officia repellendus id
+          nam omnis ullam fugit ex eaque dolores blanditiis at? Dolores
+          reiciendis nobis neque quod ex sed voluptate nesciunt doloribus ea
+          incidunt. Vel voluptate aperiam voluptatem recusandae inventore
+          blanditiis, error alias exercitationem quibusdam, ipsam officiis illum
+          earum quis! Itaque, sit. Ipsum nam sequi exercitationem.
+        </p>
+      </div>
+    </section>
+
+    <section class="relative min-h-screen flex flex-col">
+      <a class="sticky top-0 inline-block p-4 z-10" href="/"
+        ><BackIcon class="text-cyan-900 mt-1.5 w-12 h-12" /></a
+      >
+      <div class="absolute top-0 left-0 w-full h-full z-0 bg-black">
+        <Aurora />
+      </div>
+    </section>
+  </Fragment>
+</LayoutExample>

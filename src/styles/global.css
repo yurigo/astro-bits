@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+html {
+  font-family: Consolas, monaco, monospace;
+}
+
+.text-blend-multiply {
+  mix-blend-mode: difference;
+}

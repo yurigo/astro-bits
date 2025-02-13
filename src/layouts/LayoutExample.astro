@@ -1,0 +1,40 @@
+---
+import BackIcon from "@components/icons/BackIcon.astro";
+import TitleWithBackIcon from "@components/TitleWithBackIcon.astro";
+import Layout from "@layouts/Layout.astro";
+
+const { title } = Astro.props;
+const slots = Astro.slots;
+
+console.log("title", title);
+console.log("slots", slots);
+---
+
+<Layout>
+  <section class="relative min-h-screen flex flex-col">
+    <TitleWithBackIcon>{title}</TitleWithBackIcon>
+    <slot />
+  </section>
+
+  {slots.has("extra") && <slot name="extra" />}
+
+  {
+    slots.has("description") && (
+      <section>
+        <a class="sticky top-0 inline-block p-4" href="/">
+          <BackIcon class="text-cyan-900 mt-1.5 w-12 h-12" />
+        </a>
+        <div class="container mx-auto p-4 my-40">
+          <slot name="description" />
+        </div>
+      </section>
+    )
+  }
+
+  <footer class="mx-auto py-10 bg-pink-600 text-white flex justify-center">
+    <p class="text-sm">
+      This is a footer. It's a good place to put things like links to the
+      privacy policy, terms of service, and other legal documents.
+    </p>
+  </footer>
+</Layout>

@@ -1,0 +1,10 @@
+---
+import BackIcon from "./icons/BackIcon.astro";
+---
+
+<div
+  class="sticky top-0 z-50 flex items-center p-4 text-5xl text-blend-multiply"
+>
+  <a href="/"><BackIcon class="text-cyan-900 mt-1.5 w-12 h-12" /></a>
+  <h1 class="text-cyan-900 text-2xl title font-extrabold text-5xl"><slot /></h1>
+</div>

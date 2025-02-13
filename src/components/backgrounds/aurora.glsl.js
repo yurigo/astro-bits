@@ -1,11 +1,13 @@
-export const VERT = `#version 300 es
+import glsl from "glslify";
+
+export const VERT = glsl`#version 300 es
 in vec2 position;
 void main() {
   gl_Position = vec4(position, 0.0, 1.0);
 }
 `;
 
-export const FRAG = `#version 300 es
+export const FRAG = glsl`#version 300 es
 precision highp float;
 
 uniform float uTime;

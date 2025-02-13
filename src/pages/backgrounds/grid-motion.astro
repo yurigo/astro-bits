@@ -2,7 +2,7 @@
 import GridMotion from "@components/backgrounds/GridMotion.astro";
 import Button from "@components/Button.astro";
 import BackIcon from "@components/icons/BackIcon.astro";
-import Layout from "@layouts/Layout.astro";
+import LayoutExample from "@layouts/LayoutExample.astro";
 
 // note: you'll need to make sure the parent container of this component is sized properly
 const items = [
@@ -76,20 +76,23 @@ const items2 = [
 ];
 ---
 
-<Layout>
+<LayoutExample title="GridMotion">
   <div class="absolute top-0 left-0 w-full h-full z-0 bg-black">
     <GridMotion items={items} />
   </div>
   <div
-    class="relative flex flex-col items-center justify-center w-full h-full text-white z-10 pointer-events-none"
+    class="relative grow flex flex-col items-center justify-center w-full h-full text-white z-10 pointer-events-none"
   >
     <h1 class="text-9xl">GridMotion</h1>
     <Button class="mt-6 pointer-events-auto" onclick="window.location='/'"
       ><BackIcon /></Button
     >
   </div>
-  <div class="bg-gray-700">
-    <GridMotion items={items2} class="bg-black" />
-  </div>
+
+  <Fragment slot="extra">
+    <div class="bg-gray-700">
+      <GridMotion items={items2} class="bg-black" />
+    </div>
+  </Fragment>
   <!-- <GridMotion items={items} /> -->
-</Layout>
+</LayoutExample>

@@ -2,13 +2,13 @@
 import GradientText from "@components/text-animations/GradientText.astro";
 import Button from "@components/Button.astro";
 import BackIcon from "@components/icons/BackIcon.astro";
-import Layout from "@layouts/Layout.astro";
+import LayoutExample from "@layouts/LayoutExample.astro";
 ---
 
-<Layout>
+<LayoutExample title="Gradient Text">
   <div class="absolute top-0 left-0 w-full h-full z-0 bg-black"></div>
   <div
-    class="relative flex flex-col items-center justify-center w-full h-full text-white z-10"
+    class="relative grow flex flex-col items-center justify-center w-full h-full text-white z-10"
   >
     <GradientText
       class="p-5 m-3"
@@ -43,4 +43,4 @@ import Layout from "@layouts/Layout.astro";
       ><BackIcon /></Button
     >
   </div>
-</Layout>
+</LayoutExample>

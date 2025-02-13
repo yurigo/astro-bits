@@ -6,7 +6,8 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <nav>
+  <nav class="p-4">
+    <h2>Backgrounds</h2>
     <ul>
       <li>
         <a href="/backgrounds/aurora">aurora</a>
@@ -14,9 +15,31 @@ import Layout from "../layouts/Layout.astro";
       <li>
         <a href="/backgrounds/grid-motion">grid-motion</a>
       </li>
+    </ul>
+    <h2>Text Animations</h2>
+    <ul>
       <li>
         <a href="/text-animations/gradient-text">gradient-text</a>
       </li>
     </ul>
+    <h2>Ogl</h2>
+    <ul>
+      <li>
+        <a href="/glsl/0001">0001</a>
+      </li>
+      <li>
+        <a href="/glsl/0002">0002</a>
+      </li>
+      <li>
+        <a href="/glsl/0003">0003</a>
+      </li>
+    </ul>
   </nav>
 </Layout>
+
+<style>
+  h2 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+  }
+</style>
