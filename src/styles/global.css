@@ -7,3 +7,7 @@ html {
 .text-blend-multiply {
   mix-blend-mode: difference;
 }
+
+h1 {
+  @apply text-4xl md:text-9xl;
+}
