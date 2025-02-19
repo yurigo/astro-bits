@@ -1,0 +1,83 @@
+---
+import OglGallery from "@components/components/OglGallery.astro";
+import LayoutExample from "@layouts/LayoutExample.astro";
+
+import image1 from "/src/assets/images/1.jpg";
+import image2 from "/src/assets/images/2.jpg";
+import image3 from "/src/assets/images/3.jpg";
+import image4 from "/src/assets/images/4.jpg";
+import image5 from "/src/assets/images/5.jpg";
+import image6 from "/src/assets/images/6.jpg";
+import image7 from "/src/assets/images/7.jpg";
+---
+
+<LayoutExample title="Ogl Gallery">
+  <section>
+    <h1>Ogl Gallery</h1>
+
+    <div class="h-96">
+      <OglGallery class="h-96">
+        <img
+          src="https://picsum.photos/seed/1/800/600?grayscale"
+          alt="Bridge"
+        />
+        <img
+          src="https://picsum.photos/seed/2/800/600?grayscale"
+          alt="Desk Setup"
+        />
+        <img
+          src="https://picsum.photos/seed/3/800/600?grayscale"
+          alt="Waterfall"
+        />
+        <img
+          src="https://picsum.photos/seed/4/800/600?grayscale"
+          alt="Strawberries"
+        />
+        <img
+          src="https://picsum.photos/seed/5/800/600?grayscale"
+          alt="Deep Diving"
+        />
+        <img
+          src="https://picsum.photos/seed/16/800/600?grayscale"
+          alt="Train Track"
+        />
+        <img
+          src="https://picsum.photos/seed/17/800/600?grayscale"
+          alt="Santorini"
+        />
+        <img
+          src="https://picsum.photos/seed/8/800/600?grayscale"
+          alt="Blurry Lights"
+        />
+        <img
+          src="https://picsum.photos/seed/9/800/600?grayscale"
+          alt="New York"
+        />
+        <img
+          src="https://picsum.photos/seed/10/800/600?grayscale"
+          alt="Good Boy"
+        />
+        <img
+          src="https://picsum.photos/seed/21/800/600?grayscale"
+          alt="Coastline"
+        />
+        <img
+          src="https://picsum.photos/seed/12/800/600?grayscale"
+          alt="Palm Trees"
+        />
+      </OglGallery>
+    </div>
+
+    <div class="h-64">
+      <OglGallery>
+        <img src={image1.src} alt="Alice" />
+        <img src={image2.src} alt="Bob" />
+        <img src={image3.src} alt="Charlie" />
+        <img src={image4.src} alt="David" />
+        <img src={image5.src} alt="Eve" />
+        <img src={image6.src} alt="Frank" />
+        <img src={image7.src} alt="Grace" />
+      </OglGallery>
+    </div>
+  </section>
+</LayoutExample>
