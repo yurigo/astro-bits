@@ -47,7 +47,7 @@ Since it is a project in Astro, the components will not be reactive; they will b
 - [ ] https://www.reactbits.dev/components/dock
 - [ ] https://www.reactbits.dev/components/masonry
 - [ ] https://www.reactbits.dev/components/pixel-card 🔥
-- [ ] https://www.reactbits.dev/components/circular-gallery
+- [x] https://www.reactbits.dev/components/circular-gallery 🔥
 - [ ] https://www.reactbits.dev/components/spotlight-card 🔥
 - [ ] <strike>https://www.reactbits.dev/components/flying-posters</strike>
 - [ ] https://www.reactbits.dev/components/infinite-scroll
