@@ -40,7 +40,9 @@ import Layout from "../layouts/Layout.astro";
         <a href="/components/ogl-gallery">Ogl Gallery</a>
       </li>
     </ul>
-    <h2>Ogl</h2>
+    <h2>
+      Ogl <a href="https://github.com/oframe/ogl" target="_blank">➡</a>
+    </h2>
     <ul>
       <li>
         <a href="/glsl/0001">0001</a>
@@ -55,12 +57,60 @@ import Layout from "../layouts/Layout.astro";
         <a href="/glsl/0004">0004</a>
       </li>
     </ul>
+    <h2>Spline <a href="https://spline.design/" target="_blank">➡</a></h2>
+    <ul>
+      <li>
+        <a href="/spline/ufo-splinetool-viewer"
+          >ufo using stock @splinetool/viewer</a
+        >
+        <small>
+          <a
+            href="https://www.npmjs.com/package/@splinetool/viewer"
+            target="_blank"
+          >
+            @splinetool/viewer
+          </a>
+        </small>
+      </li>
+      <li>
+        <a href="/spline/ufo-custom-viewer">ufo using custom spline-viewer</a>
+        <small>
+          <a
+            href="https://www.npmjs.com/package/@splinetool/viewer"
+            target="_blank"
+          >
+            @splinetool/runtime
+          </a> and Spline.astro
+        </small>
+      </li>
+    </ul>
   </nav>
 </Layout>
 
 <style>
+  @import "tailwindcss";
+
   h2 {
-    font-size: 1.5rem;
-    margin-top: 1rem;
+    @apply text-xl md:text-2xl max-w-full text-ellipsis overflow-hidden mt-7 text-pink-500;
+  }
+
+  ul {
+    @apply mt-2;
+  }
+
+  li {
+    @apply text-lg md:text-xl;
+  }
+
+  li:hover {
+    @apply text-pink-500;
+  }
+
+  a {
+    transition: all 0.3s;
+  }
+
+  a:hover {
+    @apply decoration-4;
   }
 </style>
