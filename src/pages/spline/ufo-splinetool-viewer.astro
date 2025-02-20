@@ -1,0 +1,14 @@
+---
+import LayoutExample from "@layouts/LayoutExample.astro";
+---
+
+<LayoutExample title="UFO without Spline Viewer">
+  <spline-viewer
+    class="bg-amber-400"
+    url="https://prod.spline.design/o5PMLvubs58PCf8F/scene.splinecode"
+  ></spline-viewer>
+</LayoutExample>
+
+<script>
+  import { SplineViewer } from "@splinetool/viewer";
+</script>
