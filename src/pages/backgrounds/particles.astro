@@ -1,6 +1,6 @@
 ---
 import Particles from "@components/backgrounds/Particles.astro";
-import Button from "@components/Button.astro";
+import ButtonParticles from "@components/core/ButtonParticles.astro";
 import BackIcon from "@components/icons/BackIcon.astro";
 import LayoutExample from "@layouts/LayoutExample.astro";
 ---
@@ -23,8 +23,12 @@ import LayoutExample from "@layouts/LayoutExample.astro";
     class="relative grow flex flex-col items-center justify-center min-w-full min-h-full text-white z-10 pointer-events-none"
   >
     <h1>Particles</h1>
-    <Button class="mt-6 pointer-events-auto" onclick="window.location='/'"
-      ><BackIcon /></Button
+    <ButtonParticles
+      hue-animation-duration={12}
+      class="mt-6 pointer-events-auto"
+      onclick="window.location='/'"
     >
+      <BackIcon />
+    </ButtonParticles>
   </div>
 </LayoutExample>
