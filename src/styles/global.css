@@ -2,6 +2,7 @@
 
 html {
   font-family: Consolas, monaco, monospace;
+  @apply bg-gray-900 text-gray-300;
 }
 
 .text-blend-multiply {
@@ -9,5 +10,9 @@ html {
 }
 
 h1 {
-  @apply text-4xl md:text-9xl max-w-full text-ellipsis overflow-hidden px-10;
+  @apply text-4xl md:text-9xl max-w-full text-ellipsis overflow-hidden px-10 text-pink-500;
+}
+
+a {
+  @apply decoration-pink-600 underline decoration-1 underline-offset-2;
 }
