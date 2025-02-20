@@ -1,3 +1,8 @@
+export const random = (a, b) => {
+  const alpha = Math.random();
+  return a * (1.0 - alpha) + b * alpha;
+};
+
 export const debounce = (func, wait, immediate) => {
   let timeout;
   return function () {
