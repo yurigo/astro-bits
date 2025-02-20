@@ -4,7 +4,7 @@ import Spinner from "@components/core/Spinner.astro";
 const { url } = Astro.props;
 ---
 
-<spline-viewer data-url={url} class="w-full h-full block">
+<spline-viewer data-url={url} class="w-full h-full block relative">
   <div class="loading flex items-center justify-center w-full h-full">
     <Spinner />
   </div>
