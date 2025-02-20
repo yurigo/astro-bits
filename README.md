@@ -74,3 +74,19 @@ Since it is a project in Astro, the components will not be reactive; they will b
 - [ ] https://www.reactbits.dev/backgrounds/letter-glitch
 - [x] https://www.reactbits.dev/backgrounds/particles 🔥🔥🔥🔥🔥🔥
 - [ ] https://www.reactbits.dev/backgrounds/waves
+
+## ogl
+
+## spline
+
+Usign a webcomponent: `<spline-viewer>`
+
+```
+npm i @splinetools/viewer
+```
+
+Using a runtime
+
+```
+npm i @splinetools/runtime 🔥🔥🔥🔥🔥🔥
+```
