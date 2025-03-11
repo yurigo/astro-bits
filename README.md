@@ -3,6 +3,8 @@
 Check this: https://docs.astro.build/en/guides/client-side-scripts/#web-components-with-custom-elements
 
 Using as reference https://www.reactbits.dev/ i am doing the astrobits.
+Using as reference https://ui.aceternity.com/ i am doing the astrobits.
+Using as reference https://oframe.github.io/ogl/examples i am doing the astrobits.
 
 Since it is a project in Astro, the components will not be reactive; they will be static.
 
