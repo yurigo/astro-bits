@@ -113,7 +113,7 @@
         const particles = new Mesh(gl, { mode: gl.POINTS, geometry, program });
 
         requestAnimationFrame(update);
-        function update(t) {
+        function update(t: number) {
           requestAnimationFrame(update);
 
           // add some slight overall movement to be more interesting
