@@ -148,6 +148,16 @@ const {
       this.handleMove = this.handleMove.bind(this);
       this.handleScroll = this.handleScroll.bind(this);
       this.handlePointerMove = this.handlePointerMove.bind(this);
+
+      if (!this.parentElement) return;
+
+      const parentBorderRadius = window.getComputedStyle(
+        this.parentElement
+      ).borderRadius;
+      const values = parentBorderRadius.split(" ").map((value) => {
+        return Number(value.replace("px", "")) + this.borderWidth;
+      });
+      this.style.borderRadius = values.join("px ") + "px";
     }
 
     handleMove(e) {
