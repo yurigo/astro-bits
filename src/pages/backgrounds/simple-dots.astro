@@ -1,9 +1,13 @@
 ---
+import TitleWithBackIcon from "@components/TitleWithBackIcon.astro";
 import Layout from "@layouts/Layout.astro";
+
+const title = "Simple Dots";
 ---
 
-<Layout title="Simple Dots">
+<Layout title={title}>
   <section class="dotted">
+    <TitleWithBackIcon>{title}</TitleWithBackIcon>
     <article class="min-h-dvh">
       <h2>Lorem ipsum dolor sit amet.</h2>
       <p>
@@ -28,7 +32,16 @@ import Layout from "@layouts/Layout.astro";
       </p>
     </article>
   </section>
-  <section class="dotted">
+  <hr
+    class="dark:border-amber-500 border-red-500 border-4 w-48 mx-auto rounded"
+  />
+  <section class="h-40 grid place-content-center">
+    <h3 class="text-4xl text-pink-600">Lorem ipsum dolor sit amet.</h3>
+  </section>
+  <hr
+    class="dark:border-amber-500 border-red-500 border-4 w-[90%] mx-auto rounded"
+  />
+  <section class="dotted inverted">
     <article>
       <h2>Lorem ipsum dolor sit amet.</h2>
       <p>
@@ -66,48 +79,20 @@ import Layout from "@layouts/Layout.astro";
     }
 
     .dotted {
-      @apply p-1;
-      --white: #fff;
-      --white-feint: #898d8e;
-      --black: #0b1012;
-      --black-2: #111517;
-      --yellow: #fff312;
-      --blue: #83e6f7;
-      --green: #8df0cc;
-      --hue-0: var(--yellow);
-      --hue-1: #f08;
-      --hue-2: #d0e;
-      --hue-3: #91f;
-      --hue-4: #1e75f7;
-      --hue-5: #0cdcf7;
-      --hue-6: var(--green);
-      --hue-0-transparent: #fff31244;
-      --hue-1-transparent: #ff008844;
-      --hue-2-transparent: #dd00ee44;
-      --hue-3-transparent: #9911ff44;
-      --hue-4-transparent: #0d63f844;
-      --hue-5-transparent: #0cdcf744;
-      --hue-6-transparent: #8df0cc44;
-      --text: var(--white);
-      --accent: var(--blue);
-      --accent-transparent: #8ac0ff44;
-      --primary-control-color: var(--white);
-      --layer: #0b1011;
-      --border: #1d2628;
-      --secondary-control-color: #8ac0ff0d;
-      --background: var(--black);
-      --layer-transparent: #14171caa;
-      --divider: #1a1e26;
-      --feint-text: #586d8c;
-      --font-mono: "Azeret Mono", monospace;
+      @apply p-2;
+      --accent-transparent: #cda0245f;
       --dot-size: 1px;
       --gap-size: 20px;
       --offset: calc(var(--gap-size) / 2);
+      --dotted-bg-start: var(--color-gray-900);
+      --dotted-bg-transition: transparent;
+      --dotted-bg-end: var(--color-gray-900);
 
       background-color: transparent;
       background-image: linear-gradient(
-          var(--color-gray-900) 0%,
-          transparent 100%
+          var(--dotted-bg-start) 0%,
+          var(--dotted-bg-transition) 50%,
+          var(--dotted-bg-end) 100%
         ),
         radial-gradient(
           var(--accent-transparent) var(--dot-size),
@@ -118,8 +103,8 @@ import Layout from "@layouts/Layout.astro";
           transparent var(--dot-size)
         );
       background-position:
-        0 0,
-        0 0,
+        0px 0px,
+        0px 0px,
         var(--offset) var(--offset);
       background-size:
         100% 100%,
@@ -127,6 +112,11 @@ import Layout from "@layouts/Layout.astro";
         var(--gap-size) var(--gap-size);
 
       background-color: var(--color-gray-900);
+    }
+
+    .dotted.inverted {
+      --dotted-bg-start: transparent;
+      --dotted-bg-end: var(--color-gray-900);
     }
   </style>
 </Layout>
