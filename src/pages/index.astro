@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import GithubIcon from "@components/icons/GithubIcon.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -94,10 +95,15 @@ import Layout from "../layouts/Layout.astro";
       </li>
     </ul>
   </nav>
+  <Fragment slot="footer">
+    <a href="https://github.com/yurigo/astro-bits" target="_blank">
+      <GithubIcon size="30" />
+    </a>
+  </Fragment>
 </Layout>
 
 <style>
-  @import "tailwindcss";
+  @reference "../styles/global.css";
 
   h2 {
     @apply text-xl md:text-2xl max-w-full text-ellipsis overflow-hidden mt-7 text-pink-500;
