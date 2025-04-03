@@ -1,7 +1,9 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 html {
   font-family: Consolas, monaco, monospace;
+
   @apply bg-gray-900 text-gray-300;
 }
 
