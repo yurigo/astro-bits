@@ -1,0 +1,205 @@
+---
+import LayoutExample from "@layouts/LayoutExample.astro";
+import Particles from "@components/backgrounds/Particles.astro";
+---
+
+<LayoutExample title="Star Wars Scrolling Text Effect">
+  <div class="container prose mx-auto text-white py-4">
+    <h2>Star Wars Scrolling Text Effect</h2>
+    <h3>Using CSS Animations and JavaScript</h3>
+    <p>
+      This is a simple Star Wars scrolling text effect using CSS animations,
+      `animation-timeline: scroll(root);` and JavaScript to enlarge the
+      scrollspace. The text scrolls from the bottom to the top, simulating the
+      iconic opening crawl of Star Wars movies. It uses a combination of CSS
+      animations, custom properties, and JavaScript to create the scrolling
+      effect. It uses position sticky to keep the text in view while scrolling,
+      and transforms to create the 3D effect.
+    </p>
+  </div>
+
+  <section>
+    <div
+      class="star-wars-container sticky top-0 left-0 w-full h-screen overflow-hidden"
+    >
+      <div class="absolute top-0 left-0 w-full h-full z-0 bg-black">
+        <!-- Background Particles -->
+        <Particles
+          particleColors={["#ffffff"]}
+          particleCount={300}
+          particleSpread={10}
+          speed={0.03}
+          particleBaseSize={70}
+          moveParticlesOnHover={true}
+          alphaParticles={false}
+          disableRotation={false}
+        />
+      </div>
+      <div class="star-wars-crawler pointer-events-none">
+        <h2>Star Wars</h2>
+        <h3>Scrolling Text Effect</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad maiores
+          aut cupiditate unde ipsam ut fugit deleniti non autem, ab, tempore
+          ratione quo, nihil delectus sequi incidunt voluptates quis. Expedita!
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi,
+          repudiandae perferendis amet veritatis rerum doloremque soluta tempora
+          cum et quam, itaque aspernatur excepturi commodi deleniti natus fugit
+          repellendus obcaecati deserunt consequatur, laboriosam dignissimos.
+        </p>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum non
+          consectetur quos doloremque asperiores deserunt eaque dicta
+          necessitatibus nisi, debitis nostrum exercitationem facere excepturi
+          aspernatur hic dolorem libero ullam pariatur explicabo tenetur modi
+          doloribus voluptatibus quibusdam?
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="container prose mx-auto text-white py-10 my-4">
+    <p>
+      This is a simple Star Wars scrolling text effect using CSS animations,
+      `animation-timeline: scroll(root);` and JavaScript to enlarge the
+      scrollspace. The text scrolls from the bottom to the top, simulating the
+      iconic opening crawl of Star Wars movies. It uses a combination of CSS
+      animations, custom properties, and JavaScript to create the scrolling
+      effect. It uses position sticky to keep the text in view while scrolling,
+      and transforms to create the 3D effect.
+    </p>
+  </div>
+</LayoutExample>
+
+<style>
+  body {
+    background-color: black;
+  }
+  .star-wars-container {
+    /* background-color: black; */
+    height: 100vh;
+    overflow-x: hidden;
+    position: sticky;
+    top: 0px;
+    /* transform-origin: bottom center; */
+
+    font-size: 2rem;
+    line-height: 1.6;
+    padding: 0 10%;
+    overflow: hidden;
+  }
+
+  .star-wars-crawler {
+    font-family: Arial, sans-serif;
+    text-align: justify;
+    margin: 0 auto;
+    font-weight: 600;
+    font-size: 1rem;
+
+    max-width: 1200px;
+
+    top: 50%;
+    position: relative;
+    transform-origin: top center;
+    --translation: 500px;
+    --translation-final: -12000px;
+    --rotation: 25deg;
+    --perspective: 250px;
+
+    transform: perspective(var(--perspective)) rotateX(var(--rotation))
+      translateY(var(--translation));
+
+    animation: scrollCrawl auto linear;
+    color: #ffb13a;
+    animation-timeline: scroll(root);
+  }
+
+  .star-wars-crawler p {
+    margin: 0 0 2em 0;
+  }
+
+  @media (width > 1200px) {
+    .star-wars-crawler {
+      font-size: 50px;
+      line-height: 80px;
+    }
+  }
+
+  .star-wars-crawler h2 {
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  .star-wars-crawler h3 {
+    text-align: center;
+    margin: 0 0 100px 0;
+    text-transform: uppercase;
+  }
+
+  @keyframes scrollCrawl {
+    0% {
+      transform: perspective(var(--perspective)) rotateX(var(--rotation))
+        translateY(var(--translation));
+      opacity: 1;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: perspective(var(--perspective)) rotateX(var(--rotation))
+        translateY(var(--translation-final));
+      opacity: 0;
+    }
+  }
+
+  .star-wars-crawler-after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 1;
+  }
+</style>
+
+<script>
+  const crawler = document.querySelector(".star-wars-crawler");
+  const starWarsContainer = document.querySelector(".star-wars-container");
+
+  // create a div to hold the unreadable content
+  const crawlerAfter = document.createElement("div");
+  crawlerAfter.classList.add("star-wars-crawler-after");
+  starWarsContainer?.insertAdjacentElement("afterend", crawlerAfter);
+
+  // copy the star-wars-crawler content to the unreadable div
+  document.addEventListener("DOMContentLoaded", () => {
+    crawlerAfter.style.height = crawler?.clientHeight + "px" || 0;
+
+    crawler.style.setProperty(
+      "--translation",
+      crawler?.scrollHeight + crawler?.clientHeight + "px" || 0
+    );
+
+    crawler.style.setProperty(
+      "--translation-final",
+      -(crawler?.scrollHeight + crawler?.clientHeight) * 1.67 + "px" || 0
+    );
+  });
+
+  window.addEventListener("resize", () => {
+    crawlerAfter.style.height = crawler?.clientHeight + "px" || 0;
+
+    crawler.style.setProperty(
+      "--translation",
+      crawler?.scrollHeight + crawler?.clientHeight + "px" || 0
+    );
+
+    crawler.style.setProperty(
+      "--translation-final",
+      -(crawler?.scrollHeight + crawler?.clientHeight) * 1.67 + "px" || 0
+    );
+  });
+</script>
